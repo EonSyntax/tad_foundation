@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+{% include 'includes/navbar.html'%}
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <h1 class="display-4 text-white animated slideInDown mb-4">About Us</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">About Us</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="position-relative overflow-hidden h-100" style="min-height: 400px;">
+                        <img class="position-absolute w-100 h-100 pt-5 pe-5" src="img/about-1.jpg" alt="" style="object-fit: cover;">
+                        <img class="position-absolute top-0 end-0 bg-white ps-2 pb-2" src="img/about-2.jpg" alt="" style="width: 200px; height: 200px;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">About Us</div>
+                        <h1 class="display-6 mb-5">We Help People In Need Around The World</h1>
+                        <div class="bg-light border-bottom border-5 border-primary rounded p-4 mb-4">
+                            <p class="text-dark mb-2">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
+                            <span class="text-primary">Jhon Doe, Founder</span>
+                        </div>
+                        <p class="mb-5">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <a class="btn btn-outline-primary py-2 px-3" href="">
+                            Contact Us
+                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                <i class="fa fa-arrow-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- WhatWeDo Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">What We Do</div>
+                <h1 class="display-6 mb-5">Learn More What We Do And Get Involved</h1>
+            </div>
+            <div class="row g-2 justify-content-center">
+                <div class="col-lg-10 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{% static 'img/icon-1.png' %}" alt="">
+                        <h4 class="mb-3">Restoring Hope, Rebuilding Lives Across Nigeria</h4>
+                        <p class="mb-4" style="text-align: justify;">
+                            Every day across Nigeria, we see stories of resilience — the child who walks miles to school with hope in their heart, the single mother working tirelessly to feed her children, the young man with dreams but no resources to make them real. These are not just stories — they are real lives, real struggles, and real potential waiting to be unlocked.
+                            <br><br>
+                            Tad Foundation is a non-profit charity dedicated to uplifting and transforming the lives of underprivileged individuals and families across Nigeria. We operate with a mission to restore dignity, hope, and self-sufficiency to those who have been left behind due to poverty, crisis, or systemic barriers. Our programs are rooted in empathy, compassion, and the belief that every human being deserves a chance to live a fulfilling life. At our charity, we believe that no one should have to face these challenges alone. We believe that humanity is stronger when we act together. Every donation, every volunteer hour, every shared message is more than a kind gesture — it’s a lifeline.
+                            <br><br>
+                            One of our core focus areas is <strong>education</strong>. We believe that access to quality education is a fundamental right and the most powerful tool for breaking the cycle of poverty. Through our educational initiatives, we sponsor school fees, provide learning materials, and support community schools in rural and underserved regions. We also run mentorship and scholarship programs that empower children and youth with the knowledge and confidence to shape their futures.
+                            <br><br>
+                            We address <strong>food insecurity</strong> by organizing regular feeding programs, especially in impoverished communities and IDP camps. Our food distribution campaigns ensure that vulnerable families, the elderly, widows, and orphans do not go to bed hungry. During festive seasons and emergencies, we expand our outreach to ensure that hope is not lost even in the hardest times.
+                            <br><br>
+                            Through our <strong>healthcare outreach</strong>, we conduct free medical check-ups, supply essential medications, and support maternal and child health. We partner with volunteer doctors and clinics to bring health services closer to those who can’t afford them. Health is a human right, and we work to make it accessible to all, especially the most marginalized.
+                            <br><br>
+                            Our <strong>empowerment programs</strong> focus on equipping individuals—particularly women and unemployed youth—with vocational skills, business training, and seed capital. We run workshops in tailoring, farming, ICT, and small-scale trading, enabling beneficiaries to become self-reliant and economically stable. We believe in building people, not just providing for them.
+                            <br><br>
+                            We also respond to <strong>emergencies and disasters</strong>, providing immediate relief and long-term recovery support for victims of floods, fires, or conflict. We distribute clothes, shelter materials, hygiene kits, and psychosocial support to help affected individuals regain a sense of normalcy.
+                            <br><br>
+                            Everything we do is driven by a strong network of volunteers, donors, and community leaders. We foster transparency, accountability, and sustainability in all our initiatives. With your support, we continue to change lives—one person, one family, one community at a time.
+                            <br><br>
+                            Join us in our mission to make a lasting difference. Together, we can build a better, more compassionate Nigeria for all.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- WhatWeDo End -->
+
+
+    <!-- Team Start -->
+    <div class="container-xxl py-2">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Team Members</div>
+                <h1 class="display-6 mb-5">Let's Meet With Our Ordinary Soldiers</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-1.jpg" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Full Name</h5>
+                            <p class="text-primary">Designation</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-2.jpg" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Full Name</h5>
+                            <p class="text-primary">Designation</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-3.jpg" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Full Name</h5>
+                            <p class="text-primary">Designation</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="img/team-4.jpg" alt="">
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>Full Name</h5>
+                            <p class="text-primary">Designation</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+{% include 'includes/footer.html'%}
+
+{% endblock %}
