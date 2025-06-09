@@ -14,6 +14,22 @@
     z-index: 99;
 }
 
+.project-info {
+    font-size: 0.9rem;
+    color: #555;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 45px;
+}
+
+/* Mobile view: 0 to 575.98px */
+@media (max-width: 575.98px) {
+    .project-info {
+        margin-top: 16px;
+    }
+}
+
 
 /*** Spinner ***/
 #spinner {
@@ -241,6 +257,26 @@
 }
 
 
+.completed-box {
+    position: relative;
+    background: #fff;
+}
+
+.completed-box::before {
+    content: "COMPLETED";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 90px;
+    color: rgba(0, 128, 0, 0.55); /* Soft green */
+    font-weight: 900;
+    z-index: 2;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+
 /*** Service ***/
 .service-item {
     box-shadow: 0 0 45px rgba(0, 0, 0, .06);
@@ -264,6 +300,13 @@
     position: relative;
     top: 0;
     transition: .5s;
+}
+
+.team-image {
+    width: 100%;
+    max-width: 400px;
+    height: 450px;
+    object-fit: cover;
 }
 
 .team-item:hover img {
