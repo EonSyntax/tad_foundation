@@ -82,7 +82,7 @@ class Project(models.Model):
     date = models.DateField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES)
     
-    main_image = models.ImageField(upload_to='projects/main_images/')
+    main_image = CloudinaryField('image', default='default')
 
     goal_price = models.DecimalField(max_digits=12, decimal_places=2)
     raised_price = models.DecimalField(max_digits=12, decimal_places=2)
