@@ -107,4 +107,4 @@ def testimonial(request):
 
 
 def _404(request):
-    return render(request, 'pages/404.html')
+    return render(request, 'pages/404.html', status=404)

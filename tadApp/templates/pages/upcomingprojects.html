@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load humanize %}
 {% load static %}
 
 {% include 'includes/navbar.html'%}
@@ -48,8 +49,8 @@
                             <p>{{ project.short_description }}</p>
                             <div class="causes-progress bg-light p-3 pt-2">
                                 <div class="d-flex justify-content-between">
-                                    <p class="text-dark">₦{{ project.goal_price }} <small class="text-body">Goal</small></p>
-                                    <p class="text-dark">₦{{ project.raised_price }} <small class="text-body">Raised</small></p>
+                                    <p class="text-dark">₦{{ project.goal_price|floatformat:0|intcomma }} <small class="text-body">Goal</small></p>
+                                    <p class="text-dark">₦{{ project.raised_price|floatformat:0|intcomma }} <small class="text-body">Raised</small></p>
                                 </div>
                                 <div class="progress">
                                     <div class="progress-bar

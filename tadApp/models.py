@@ -1,4 +1,6 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 
@@ -9,11 +11,11 @@ class TeamMember(models.Model):
     whatsapp_number = models.CharField(max_length=15, blank=True, null=True)
     facebook_link = models.URLField(blank=True, null=True)
     instagram_link = models.URLField(blank=True, null=True)
-    image = models.ImageField(
-    upload_to='team_images/',
-    blank=True,
-    null=True,
-    default='team_images/default.png'  # or any valid path inside your media folder
+    image = CloudinaryField(
+        'image',
+        blank=True,
+        null=True,
+        default='default'
     )
 
     def __str__(self):
@@ -24,11 +26,11 @@ class Volunteer(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     project_Volunteered_For = models.CharField(max_length=100)
-    image = models.ImageField(
-        upload_to='volunteer_images/',
+    image = CloudinaryField(
+        'image',
         blank=True,
         null=True,
-        default='team_images/default.png'  # or any valid path inside your media folder
+        default='default'
     )
 
     def __str__(self):
@@ -39,11 +41,11 @@ class Sponsor(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     project_Sponsored = models.CharField(max_length=100)
-    image = models.ImageField(
-        upload_to='volunteer_images/',
+    image = CloudinaryField(
+        'image',
         blank=True,
         null=True,
-        default='team_images/default.png'  # or any valid path inside your media folder
+        default='default'
     )
 
     def __str__(self):
@@ -55,11 +57,11 @@ class Testimonial(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
     testimonial_text = models.TextField()
-    image = models.ImageField(
-        upload_to='volunteer_images/',
+    image = CloudinaryField(
+        'image',
         blank=True,
         null=True,
-        default='team_images/default.png'  # or any valid path inside your media folder
+        default='default'
     )
 
     def __str__(self):
@@ -97,27 +99,12 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='other_images')
-    image = models.ImageField(upload_to='projects/other_images/')
+    image = CloudinaryField('image', default='default')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Image {self.id} for {self.project.name}"
+    
 
-
-"""
-        for upcoming&completed project
-category
-project name
-short description
-full description
-project date
-project status (ongoing, completed, upcoming)
-Main image
-other images
-goal price
-raised price
-
-
-"""
 
 

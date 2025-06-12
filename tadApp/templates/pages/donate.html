@@ -93,7 +93,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-4">
         <div class="text-center">
-            <img src="{% static 'img/bank.jpg' %}" alt="Bank Logo" class="img-fluid mb-3" style="max-height: 80px;">
+            <img src="{% static 'img/Opaylogo.png' %}" alt="Bank Logo" class="img-fluid mb-3" style="max-height: 80px;">
             <h5 class="mb-1">Bank Name: <strong>Opay</strong></h5>
             <p class="mb-1">Account Number: <strong>8133786763</strong></p>
             <p class="mb-4">Account Name: <strong>Titoluwaniope Arulogun</strong></p>
@@ -104,7 +104,6 @@
         </div>
     </div>
     </div>
-
 
 
 
@@ -143,8 +142,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Handle modal confirmation
     window.submitDonationForm = function () {
+        const form = document.getElementById("donationForm");
+
+        // Submit the form
         document.getElementById("hiddenSubmit").click();
-        alert("🎉 Thank you for your donation!");
+
+        // Optional: Delay clearing slightly to ensure Formspree gets the submission
+        setTimeout(() => {
+            form.reset(); // clears all form fields
+            alert("🎉 Thank you for your donation!");
+        }, 300); // adjust delay as needed
     };
 });
 </script>

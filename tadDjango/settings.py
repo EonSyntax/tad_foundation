@@ -9,23 +9,33 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+from pathlib import Path
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+# Optional: Import Cloudinary if using programmatic uploads
+import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3%rrtez88!agq3$*-814zr%9a)^@c@k8nj4rb%ag@2tk_ct06b'
+SECRET_KEY = os.environ.get('SECRET_KEY', '3%rrtez88!agq3$*-814zr%9a)^@c@k8nj4rb%ag@2tk_ct06b')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "tadfoundation.onrender.com"]
+
+
+# Read environment variables
+USE_CLOUDINARY = os.getenv("USE_CLOUDINARY", "False").lower() == "true"
 
 
 # Application definition
@@ -37,11 +47,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tadApp',
+    'django.contrib.humanize',
+    'tadApp.apps.MyAppConfig',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -55,7 +69,7 @@ ROOT_URLCONF = 'tadDjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,12 +88,38 @@ WSGI_APPLICATION = 'tadDjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+# Database
+if not DEBUG:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL')
+        )
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+
+# Cloudinary setup
+if USE_CLOUDINARY:
+    cloudinary.config( 
+        cloud_name=os.getenv("CLOUD_NAME", "").strip(),
+        api_key=os.getenv("API_KEY", "").strip(),
+        api_secret=os.getenv("API_SECRET", "").strip(),
+        secure=True  # ← this forces https URLs
+    )
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+    print("Cloudinary config loaded:")
+    print("  CLOUD_NAME:", os.getenv("CLOUD_NAME"))
+    print("  API_KEY:", os.getenv("API_KEY"))
+    print("  API_SECRET:", os.getenv("API_SECRET"))
+
 
 
 # Password validation
@@ -99,6 +139,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+HANDLER404 = 'tadApp.views._404'
 
 
 # Internationalization
@@ -123,6 +166,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'tadDjango/static'),
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media settings
 MEDIA_URL = '/media/'
