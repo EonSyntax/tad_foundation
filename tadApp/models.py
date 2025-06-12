@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+# Models for TeamMember
 class TeamMember(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
@@ -17,7 +19,7 @@ class TeamMember(models.Model):
     def __str__(self):
         return self.name
 
-
+# Models for Volunteer
 class Volunteer(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
@@ -32,7 +34,7 @@ class Volunteer(models.Model):
     def __str__(self):
         return self.name
     
-
+# Models for Sponsor
 class Sponsor(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
@@ -48,7 +50,7 @@ class Sponsor(models.Model):
         return self.name
 
 
-
+# Models for Testimonial
 class Testimonial(models.Model):
     name = models.CharField(max_length=100)
     designation = models.CharField(max_length=100)
@@ -63,31 +65,55 @@ class Testimonial(models.Model):
     def __str__(self):
         return self.name
 
+# Models for Project
+class Project(models.Model):
+    STATUS_CHOICES = [
+        ('ongoing', 'Ongoing'),
+        ('completed', 'Completed'),
+        ('upcoming', 'Upcoming'),
+    ]
+
+    category = models.CharField(max_length=100)
+    name = models.CharField(max_length=200)
+    short_description = models.CharField(max_length=255)
+    full_description = models.TextField()
+    date = models.DateField()
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+    
+    main_image = models.ImageField(upload_to='projects/main_images/')
+
+    goal_price = models.DecimalField(max_digits=12, decimal_places=2)
+    raised_price = models.DecimalField(max_digits=12, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.name} ({self.status})"
+
+    @property
+    def progress_percentage(self):
+        if self.goal_price > 0:
+            return min(100, round((self.raised_price / self.goal_price) * 100))
+        return 0
 
 
+class ProjectImage(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='other_images')
+    image = models.ImageField(upload_to='projects/other_images/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
-
+    def __str__(self):
+        return f"Image {self.id} for {self.project.name}"
 
 
 """
-        Team
-image
-name
-designation
-whatsapp number
-facebook link
-instagram link
-
-
-
         for upcoming&completed project
 category
 project name
-description
-project start date
-project end date
+short description
+full description
+project date
 project status (ongoing, completed, upcoming)
-image
+Main image
+other images
 goal price
 raised price
 
