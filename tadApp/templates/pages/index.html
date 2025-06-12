@@ -16,8 +16,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
-                                    <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Change The World With Humanity</h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
+                                    <h1 class="display-4 text-white mb-3 animated slideInDown">Empowering Dreams, Transforming Lives.</h1>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">At TAD Foundation, we believe every child deserves a future filled with hope, education, and opportunity. Join us in building a world where compassion creates lasting change.</p>
                                     <a class="btn btn-primary py-2 px-3 animated slideInDown" href="{% url 'about' %}">
                                         Learn More
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
@@ -36,7 +36,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-7 pt-5">
                                     <h1 class="display-4 text-white mb-3 animated slideInDown">Let's Save More Lifes With Our Helping Hand</h1>
-                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed stet lorem sit clita duo justo erat amet</p>
+                                    <p class="fs-5 text-white-50 mb-5 animated slideInDown">From classrooms to communities, TAD Foundation is rewriting stories of poverty into journeys of promise. Your support lights the path for a brighter tomorrow.</p>
                                     <a class="btn btn-primary py-2 px-3 animated slideInDown" href="{% url 'about' %}">
                                         Learn More
                                         <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
@@ -71,7 +71,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="position-relative overflow-hidden h-100" style="min-height: 400px;">
                         <img class="position-absolute w-100 h-100 pt-5 pe-5" src="{% static 'img/about-1.jpg' %} " alt="" style="object-fit: cover;">
-                        <img class="position-absolute top-0 end-0 bg-white ps-2 pb-2" src="{% static 'img/about-2.jpg' %} " alt="" style="width: 200px; height: 200px;">
+                        <img class="position-absolute top-0 end-0 ps-2 pb-2" src="{% static 'img/about-2.png' %} " alt="" style="width: 200px; height: 200px;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -83,18 +83,20 @@
                             <span class="text-primary">Titoluwaniope Arulogun, Founder</span>
                         </div>
                         <p class="mb-5">We are calling on you — compassionate hearts, helping hands, and hopeful minds — to stand with us. Join us in building a better world. Whether you give your time, your voice, your money or your support, you become a light in someone’s darkest hour.</p>
-                        <a class="btn btn-primary py-2 px-3 me-3" href="{% url 'about' %}">
-                            Learn More
-                            <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        <a class="btn btn-outline-primary py-2 px-3" href="{% url 'contact' %}">
-                            Contact Us
-                            <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
-                                <i class="fa fa-arrow-right"></i>
-                            </div>
-                        </a>
+                        <div class="d-flex align-items-center">
+                            <a class="btn btn-primary me-3" href="{% url 'about' %}">
+                                Learn More
+                                <div class="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
+                                    <i class="fa fa-arrow-right"></i>
+                                </div>
+                            </a>
+                            <a class="btn btn-outline-primary py-2 px-3" href="{% url 'contact' %}">
+                                Contact Us
+                                <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
+                                    <i class="fa fa-arrow-right"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -116,7 +118,7 @@
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="{% static 'img/icon-1.png' %} " alt="">
                         <h4 class="mb-3">Child Education</h4>
-                        <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <p class="mb-4">Providing quality education to underprivileged children through school supplies, scholarships, and mentorship.</p>
                         <a class="btn btn-outline-primary px-3" href="{% url 'about' %}">
                             Learn More
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -129,7 +131,7 @@
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="{% static 'img/icon-2.png' %} " alt="">
                         <h4 class="mb-3">Medical Treatment</h4>
-                        <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <p class="mb-4">Free medical check-ups, vaccinations, and nutrition support for children in underserved communities.</p>
                         <a class="btn btn-outline-primary px-3" href="{% url 'about' %}">
                             Learn More
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -142,7 +144,7 @@
                     <div class="service-item bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="{% static 'img/icon-3.png' %} " alt="">
                         <h4 class="mb-3">Pure Drinking Water</h4>
-                        <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <p class="mb-4">Daily meal programs for schoolchildren to combat hunger and improve attendance.</p>
                         <a class="btn btn-outline-primary px-3" href="{% url 'about' %}">
                             Learn More
                             <div class="d-inline-flex btn-sm-square bg-primary text-white rounded-circle ms-2">
@@ -330,7 +332,7 @@
                 <div class="d-inline-block rounded-pill bg-secondary text-primary py-1 px-3 mb-3">Team Members</div>
                 <h1 class="display-6 mb-5">Let's Meet Our Tireless Soldiers of Hope and Change</h1>
             </div>
-            <div class="row g-4">
+            <div class="row g-4 d-flex align-items-center">
                              {% for team in team %}       
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item position-relative rounded overflow-hidden">
