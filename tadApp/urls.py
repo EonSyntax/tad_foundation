@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from tadApp.views import healthz
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -30,4 +31,5 @@ urlpatterns = [
     path('sponsors', views.sponsors, name='sponsors'),
     path('contact', views.contact, name='contact'),
     path('404', views._404, name='404'),
+    path("healthz/", healthz, name="healthz"),
 ]

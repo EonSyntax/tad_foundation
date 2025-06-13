@@ -1,13 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from .models import TeamMember, Volunteer, Sponsor, Testimonial, Project, ProjectImage
-
-
-
-
-
+from django.http import HttpResponse
+from django.db import connection
 
 
 # Create your views here.
+
+# Create a health check endpoint to verify the database connection
+def healthz(request):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT 1")
+        # database is up
+        return HttpResponse("OK", status=200)
+    except Exception:
+        return HttpResponse("DB Error", status=500)
+
+
+
 def index(request): 
     team = TeamMember.objects.all()
     testimonial = Testimonial.objects.all()
