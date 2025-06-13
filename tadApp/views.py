@@ -21,7 +21,8 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    team = TeamMember.objects.all()
+    return render(request, 'pages/about.html', {'team': team})
 
 
 
