@@ -35,7 +35,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '3%rrtez88!agq3$*-814zr%9a)^@c@k8nj4rb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "tadfoundation.onrender.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', "tadfoundationng.onrender.com"]
 
 
 # Read environment variables
