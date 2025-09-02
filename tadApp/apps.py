@@ -7,6 +7,7 @@ class TadappConfig(AppConfig):
     name = 'tadApp'
 
     def ready(self):
+        print("📢 TadappConfig.ready() called")
         if os.environ.get("CREATE_SUPERUSER", "false").lower() == "true":
             from .utils import create_admin_user
 
@@ -17,4 +18,4 @@ class TadappConfig(AppConfig):
                 except Exception as e:
                     print(f"⚠ Superuser creation failed: {e}")
 
-            post_migrate.connect(create_user_after_migrate)
+            post_migrate.connect(create_user_after_migrate, weak=False)
