@@ -11,9 +11,10 @@ class TadappConfig(AppConfig):
             from .utils import create_admin_user
 
             def create_user_after_migrate(sender, **kwargs):
+                print("📢 post_migrate signal triggered")
                 try:
                     create_admin_user()
                 except Exception as e:
                     print(f"⚠ Superuser creation failed: {e}")
 
-            post_migrate.connect(create_user_after_migrate, sender=self)
+            post_migrate.connect(create_user_after_migrate)
