@@ -119,12 +119,6 @@ if USE_CLOUDINARY:
     )
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-    print("Cloudinary config loaded:")
-    print("  CLOUD_NAME:", os.getenv("CLOUD_NAME"))
-    print("  API_KEY:", os.getenv("API_KEY"))
-    print("  API_SECRET:", os.getenv("API_SECRET"))
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -175,7 +169,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Media settings
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-print("CREATE_SUPERUSER =", os.environ.get("CREATE_SUPERUSER"))
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
